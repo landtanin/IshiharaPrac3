@@ -102,7 +102,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (radioAnInt == 0) {
 
-            Toast.makeText(MainActivity.this, "Please Choose the answer", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Please select your answer", Toast.LENGTH_SHORT).show();
 
         } else {
             //check score
