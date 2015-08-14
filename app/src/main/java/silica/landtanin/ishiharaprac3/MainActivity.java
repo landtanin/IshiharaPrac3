@@ -4,14 +4,57 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
+
+    private TextView questionTextView;
+    private ImageView ishiharaPic;
+    private RadioGroup choiceRadioGroup;
+    private RadioButton choice1, choice2, choice3, choice4;
+    private Button AnsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Bind widget
+        bindWidget();
+
+        //Create Button Controller
+        buttonController();
+
     }
+
+    private void buttonController() {
+
+        AnsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+
+            }
+        });//Statement in method
+
+    }//button controller
+
+    private void bindWidget() {
+        questionTextView = (TextView) findViewById(R.id.head1);
+        ishiharaPic = (ImageView) findViewById(R.id.imageView);
+        choiceRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
+        choice1 = (RadioButton) findViewById(R.id.radioButton1);
+        choice2 = (RadioButton) findViewById(R.id.radioButton2);
+        choice3 = (RadioButton) findViewById(R.id.radioButton3);
+        choice4 = (RadioButton) findViewById(R.id.radioButton4);
+        AnsButton = (Button) findViewById(R.id.AnsButton);
+    }//bind widget
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
