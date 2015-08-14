@@ -1,5 +1,6 @@
 package silica.landtanin.ishiharaprac3;
 
+import android.media.MediaPlayer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -10,6 +11,8 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.content.Intent;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup choiceRadioGroup;
     private RadioButton choice1, choice2, choice3, choice4;
     private Button AnsButton;
+    private int radioAnInt,indexAnInt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
         //Create Button Controller
         buttonController();
 
+        //Create Button Radio controller
+        radioController();
     }
 
     private void buttonController() {
@@ -38,15 +44,111 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
+                //sound effect
+                MediaPlayer buttonMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.effect_btn_long);
+                buttonMediaPlayer.start();
+
+                //check zero
+                checkZero();
 
 
-            }
+
+            }//event of statement
         });//Statement in method
 
     }//button controller
 
+    private void radioController() {
+
+        choiceRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+
+                //sound effect
+                MediaPlayer radioMediaPlayer = MediaPlayer.create(getBaseContext(), R.raw.phonton1);
+                radioMediaPlayer.start();
+
+                //Setup radio
+                switch (i) {
+
+                    case R.id.radioButton1:
+                        radioAnInt = 1;
+                        break;
+
+                    case R.id.radioButton2:
+                        radioAnInt = 2;
+                        break;
+
+                    case R.id.radioButton3:
+                        radioAnInt = 3;
+                        break;
+
+                    case R.id.radioButton4:
+                        radioAnInt = 4;
+                        break;
+
+                    default:
+                        radioAnInt = 0;
+                        break;
+
+                }
+
+            }//event
+        });
+
+    }
+
+    private void checkZero() {
+
+        if (radioAnInt == 0) {
+
+            Toast.makeText(MainActivity.this, "Please Choose the answer", Toast.LENGTH_SHORT).show();
+
+        } else {
+            //check score
+            checkScore();
+            
+            //check times
+            checkTimes();
+
+        }
+
+    }//checkZero
+
+    private void checkTimes() {
+        if (indexAnInt == 9) {
+
+            IntentToShowScore();
+        }
+
+        else {
+
+            //increase indexAnInt
+            indexAnInt++;
+
+            //Controller call view
+            questionTextView.setText(Integer.toString(indexAnInt+1)+". What is this?");
+
+        }
+
+    }//check times
+
+    private void IntentToShowScore() {
+        Intent objIntent = new Intent(MainActivity.this,ShowScoreActivity.class);
+
+        startActivity(objIntent);
+        finish();
+
+    }//intent to show score
+
+    private void checkScore() {
+
+
+        
+    }//check score
+
     private void bindWidget() {
-        questionTextView = (TextView) findViewById(R.id.head1);
+        questionTextView = (TextView) findViewById(R.id.head2);
         ishiharaPic = (ImageView) findViewById(R.id.imageView);
         choiceRadioGroup = (RadioGroup) findViewById(R.id.radioGroup);
         choice1 = (RadioButton) findViewById(R.id.radioButton1);

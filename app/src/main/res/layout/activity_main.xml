@@ -16,7 +16,8 @@
             android:shadowColor="@color/black"
             android:singleLine="true"
             android:textColor="@color/black"
-            android:id="@+id/head1" />
+            android:id="@+id/head1"
+            android:layout_marginTop="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -25,8 +26,8 @@
             android:id="@+id/head2"
             android:textColor="@color/black"
             android:textSize="@dimen/head2size"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -40,13 +41,15 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_gravity="center_horizontal"
-            android:id="@+id/radioGroup">
+            android:id="@+id/radioGroup"
+            android:layout_marginTop="10dp">
 
             <RadioButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="3"
-                android:id="@+id/radioButton1" />
+                android:id="@+id/radioButton1"
+                android:checked="false" />
 
             <RadioButton
                 android:layout_width="wrap_content"
