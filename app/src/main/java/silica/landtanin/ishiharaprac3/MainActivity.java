@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioButton choice1, choice2, choice3, choice4;
     private Button AnsButton;
     private int radioAnInt,indexAnInt;
+    private MyModel objMyModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,7 +37,36 @@ public class MainActivity extends AppCompatActivity {
 
         //Create Button Radio controller
         radioController();
+
+        //About MyModel
+        aboutMyModel();
+
     }
+
+    private void aboutMyModel() {
+        objMyModel = new MyModel();
+        objMyModel.setOnMyModelChangeListener(new MyModel.OnMyModelChangeListener() {
+            @Override
+            public void onMyModelChangeListener(MyModel myModel) {
+
+                //Change view
+                changeView(myModel.getModelAnInt());//changeView will change picture and change choice
+
+            }//event, when interface change it will sent a value to this field(MyModel)
+        });
+    }
+
+    private void changeView(int modelAnInt) {
+
+        //change image
+        int intDrawable[] = {R.drawable.ishihara_01, R.drawable.ishihara_02, R.drawable.ishihara_03,
+                R.drawable.ishihara_04, R.drawable.ishihara_05, R.drawable.ishihara_06,
+                R.drawable.ishihara_07, R.drawable.ishihara_08, R.drawable.ishihara_09,
+                R.drawable.ishihara_10};
+
+        ishiharaPic.setImageResource(intDrawable[modelAnInt]);
+
+    } //Change View
 
     private void buttonController() {
 
@@ -129,6 +159,8 @@ public class MainActivity extends AppCompatActivity {
             //Controller call view
             questionTextView.setText(Integer.toString(indexAnInt+1)+". What is this?");
 
+            //Controller call model
+            objMyModel.setModelAnInt(indexAnInt);//this is where we sent value to model, this is also a setter of controller
 
         }
 
