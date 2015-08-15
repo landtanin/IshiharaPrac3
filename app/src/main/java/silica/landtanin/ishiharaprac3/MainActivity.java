@@ -79,7 +79,12 @@ public class MainActivity extends AppCompatActivity {
         intTimes[8] = R.array.times9;
         intTimes[9] = R.array.times10;
 
-
+        String strChoice[] = new String[4];//4 slots for 4 choices
+        strChoice = getResources().getStringArray(intTimes[modelAnInt]);
+        choice1.setText(strChoice[0]);
+        choice2.setText(strChoice[1]);
+        choice3.setText(strChoice[2]);
+        choice4.setText(strChoice[4]);
     } //Change View
 
     private void buttonController() {
