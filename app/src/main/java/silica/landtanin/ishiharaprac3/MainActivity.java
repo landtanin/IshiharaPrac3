@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         choice1.setText(strChoice[0]);
         choice2.setText(strChoice[1]);
         choice3.setText(strChoice[2]);
-        choice4.setText(strChoice[4]);
+        choice4.setText(strChoice[3]);
     } //Change View
 
     private void buttonController() {
