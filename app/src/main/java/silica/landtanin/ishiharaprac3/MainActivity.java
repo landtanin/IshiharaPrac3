@@ -129,6 +129,7 @@ public class MainActivity extends AppCompatActivity {
             //Controller call view
             questionTextView.setText(Integer.toString(indexAnInt+1)+". What is this?");
 
+
         }
 
     }//check times
