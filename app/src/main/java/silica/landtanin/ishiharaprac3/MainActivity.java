@@ -187,7 +187,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void IntentToShowScore() {
         Intent objIntent = new Intent(MainActivity.this,ShowScoreActivity.class);
-        objIntent.putExtra("Score", scoreAnInt);
+        objIntent.putExtra("Score", scoreAnInt); //send total score to ShowScoreActivity, Score in double quote is like a keyword to let the otherside know where to put this value
         startActivity(objIntent);
         finish();
 
