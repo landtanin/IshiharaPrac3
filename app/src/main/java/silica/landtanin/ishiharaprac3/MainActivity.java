@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private RadioGroup choiceRadioGroup;
     private RadioButton choice1, choice2, choice3, choice4;
     private Button AnsButton;
-    private int radioAnInt,indexAnInt;
+    private int radioAnInt,indexAnInt,scoreAnInt;
     private MyModel objMyModel;
 
     @Override
