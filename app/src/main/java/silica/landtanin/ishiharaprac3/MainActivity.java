@@ -187,16 +187,22 @@ public class MainActivity extends AppCompatActivity {
 
     private void IntentToShowScore() {
         Intent objIntent = new Intent(MainActivity.this,ShowScoreActivity.class);
-
+        objIntent.putExtra("Score", scoreAnInt);
         startActivity(objIntent);
         finish();
 
     }//intent to show score
 
     private void checkScore() {
+        int intAnswertrue[] = {1, 2, 3, 1, 2, 3, 1, 2, 4, 4};
+
+        if (radioAnInt == intAnswertrue[indexAnInt]) {
+
+            scoreAnInt++;
+
+        } //score record
 
 
-        
     }//check score
 
     private void bindWidget() {
