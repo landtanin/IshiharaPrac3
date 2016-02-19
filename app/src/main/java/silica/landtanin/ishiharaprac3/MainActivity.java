@@ -16,6 +16,8 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
+    // version control check
+
     private TextView questionTextView;
     private ImageView ishiharaPic;
     private RadioGroup choiceRadioGroup;
